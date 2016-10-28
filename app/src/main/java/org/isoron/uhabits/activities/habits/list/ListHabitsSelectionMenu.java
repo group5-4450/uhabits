@@ -87,7 +87,7 @@ public class ListHabitsSelectionMenu extends BaseSelectionMenu
                 return true;
 
             case R.id.action_edit_note:
-                showEditScreen(firstHabit);
+                showNoteScreen(firstHabit);
                 finish();
                 return true;
 
@@ -209,4 +209,10 @@ public class ListHabitsSelectionMenu extends BaseSelectionMenu
     {
         screen.showEditHabitScreen(firstHabit);
     }
+
+    private void showNoteScreen(@NonNull Habit firstHabit)
+    {
+        screen.showNoteHabitScreen(firstHabit);
+    }
+
 }

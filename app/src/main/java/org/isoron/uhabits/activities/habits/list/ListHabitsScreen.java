@@ -244,4 +244,11 @@ public class ListHabitsScreen extends BaseScreen
         themeSwitcher.toggleNightMode();
         activity.restartWithFade();
     }
+    public void showNoteHabitScreen(Habit habit)
+    {
+        Log.d("tag", "actionItemVale: not NULL");
+        EditHabitDialog dialog = editHabitDialogFactory.create(habit);
+        activity.showDialog(dialog, "editHabit");
+
+    }
 }

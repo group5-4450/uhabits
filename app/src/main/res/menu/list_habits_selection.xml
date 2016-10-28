@@ -24,12 +24,20 @@
     <item
         android:id="@+id/action_edit_habit"
         android:title="@string/edit"
-        android:icon="?iconEdit"/>
+        android:icon="?iconEdit"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/action_edit_note"
+        android:title="@string/note"
+        android:icon="?iconNote"
+        app:showAsAction="always"/>
 
     <item
         android:id="@+id/action_color"
         android:title="@string/color_picker_default_title"
-        android:icon="?iconChangeColor"/>
+        android:icon="?iconChangeColor"
+        app:showAsAction="always"/>
 
     <item
         android:id="@+id/action_archive_habit"

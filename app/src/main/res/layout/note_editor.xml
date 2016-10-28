@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+    <LinearLayout
+        android:id="@+id/formPanel"
+        style="@style/dialogFormPanel"
+        android:layout_height="214dp"
+        android:weightSum="1">
+
+        <TextView
+            android:text="TextView"
+            android:layout_width="349dp"
+            android:layout_height="match_parent"
+            android:id="@+id/textView"
+            android:layout_weight="0.09" />
+    </LinearLayout>
+
+    <LinearLayout
+        style="?android:attr/buttonBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:paddingEnd="16dp"
+        android:paddingLeft="0dp"
+        android:paddingRight="16dp"
+        android:paddingStart="0dp">
+
+        <Button
+            android:id="@+id/buttonDiscard"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/discard"/>
+
+        <Button
+            android:id="@+id/buttonSave"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/save"/>
+
+    </LinearLayout>
+</LinearLayout>
