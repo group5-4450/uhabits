@@ -86,6 +86,12 @@ public class ListHabitsSelectionMenu extends BaseSelectionMenu
                 finish();
                 return true;
 
+            case R.id.action_edit_note:
+                showEditScreen(firstHabit);
+                finish();
+                return true;
+
+
             case R.id.action_archive_habit:
                 performArchive(selected);
                 finish();

@@ -21,6 +21,7 @@ package org.isoron.uhabits.activities.habits.list;
 
 import android.content.*;
 import android.support.annotation.*;
+import android.util.Log;
 
 import org.isoron.uhabits.*;
 import org.isoron.uhabits.activities.*;
@@ -191,8 +192,10 @@ public class ListHabitsScreen extends BaseScreen
 
     public void showEditHabitScreen(Habit habit)
     {
+        Log.d("tag", "actionItemVale: not NULL");
         EditHabitDialog dialog = editHabitDialogFactory.create(habit);
         activity.showDialog(dialog, "editHabit");
+
     }
 
     public void showFAQScreen()

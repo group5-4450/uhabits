@@ -30,6 +30,7 @@ import android.support.v4.content.res.*;
 import android.support.v7.app.*;
 import android.support.v7.view.ActionMode;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.*;
 import android.widget.*;
 
@@ -269,6 +270,13 @@ public class BaseScreen
         public boolean onActionItemClicked(@Nullable ActionMode mode,
                                            @Nullable MenuItem item)
         {
+            if (item == null) {
+                Log.d("tag", "actionItemVale: NULL");
+            }
+            else {
+                Log.d("tag", "actionItemVale: not NULL");
+            }
+
             if (item == null || selectionMenu == null) return false;
             return selectionMenu.onItemClicked(item);
         }

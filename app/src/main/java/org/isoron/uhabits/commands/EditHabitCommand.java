@@ -20,6 +20,7 @@
 package org.isoron.uhabits.commands;
 
 import android.support.annotation.*;
+import android.util.Log;
 
 import com.google.auto.factory.*;
 
@@ -47,6 +48,7 @@ public class EditHabitCommand extends Command
                             @NonNull Habit original,
                             @NonNull Habit modified)
     {
+        Log.d("tag", "editting the habit");
         this.habitList = habitList;
         this.savedId = original.getId();
         this.modified = modelFactory.buildHabit();
