@@ -42,10 +42,13 @@ public class HabitRecord extends Model implements SQLiteRecord
     public static String SELECT =
         "select id, color, description, freq_den, freq_num, " +
         "name, position, reminder_hour, reminder_min, " +
-        "highlight, archived, reminder_days from habits ";
+        "highlight, archived, reminder_days from habits, note ";
 
     @Column(name = "name")
     public String name;
+
+    @Column(name = "note")
+    public String note;
 
     @Column(name = "description")
     public String description;
@@ -140,6 +143,7 @@ public class HabitRecord extends Model implements SQLiteRecord
     public void copyFrom(Habit model)
     {
         this.name = model.getName();
+        this.note = model.getNote();
         this.description = model.getDescription();
         this.highlight = 0;
         this.color = model.getColor();
@@ -175,11 +179,13 @@ public class HabitRecord extends Model implements SQLiteRecord
         highlight = c.getInt(9);
         archived = c.getInt(10);
         reminderDays = c.getInt(11);
+        note = c.getString(12);
     }
 
     public void copyTo(Habit habit)
     {
         habit.setName(this.name);
+        habit.setNote(this.note);
         habit.setDescription(this.description);
         habit.setFrequency(new Frequency(this.freqNum, this.freqDen));
         habit.setColor(this.color);

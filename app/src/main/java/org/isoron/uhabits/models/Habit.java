@@ -43,6 +43,9 @@ public class Habit
     private String name;
 
     @NonNull
+    private String note;
+
+    @NonNull
     private String description;
 
     @NonNull
@@ -107,6 +110,7 @@ public class Habit
     public void copyFrom(@NonNull Habit model)
     {
         this.name = model.getName();
+        this.note = model.getNote();
         this.description = model.getDescription();
         this.color = model.getColor();
         this.archived = model.isArchived();
@@ -185,6 +189,17 @@ public class Habit
     public void setName(@NonNull String name)
     {
         this.name = name;
+    }
+
+    @NonNull
+    public String getNote()
+    {
+        return note;
+    }
+
+    public void setNote(@NonNull String note)
+    {
+        this.note = note;
     }
 
     public ModelObservable getObservable()
@@ -269,6 +284,7 @@ public class Habit
         return new ToStringBuilder(this)
             .append("id", id)
             .append("name", name)
+            .append("note", note)
             .append("description", description)
             .append("color", color)
             .append("archived", archived)
