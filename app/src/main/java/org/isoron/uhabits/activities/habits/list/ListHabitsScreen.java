@@ -250,11 +250,14 @@ public class ListHabitsScreen extends BaseScreen
         // Creating a bundle of information to pass to the activity
         Bundle args = new Bundle();
         args.putLong("habitId", habit.getId());
+        Log.d("tag", "habitId is " + habit.getId());
+
 
         Log.d("tag", "actionItemVale: not NULL");
         Intent intent = intentFactory.startNoteACtivity(activity);
 
         intent.putExtras(args);
+        Log.d("tag", "habitId is " + args);
         activity.startActivity(intent);
 
     }
