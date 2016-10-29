@@ -65,5 +65,9 @@
             android:id="@+id/frequencyCard"
             style="@style/Card"/>
 
+        <org.isoron.uhabits.activities.habits.show.views.NoteCard
+            android:id="@+id/noteCard"
+            style="@style/Card"/>
+
     </LinearLayout>
 </ScrollView>

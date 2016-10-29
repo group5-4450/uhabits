@@ -53,7 +53,7 @@
         <item name="iconAdd">@drawable/ic_action_add_dark</item>
         <item name="iconArchive">@drawable/ic_action_archive_dark</item>
         <item name="iconEdit">@drawable/ic_action_edit_dark</item>
-        <item name="iconNote">@drawable/note_image</item>
+        <item name="iconNote">@drawable/paper_clip2_light_image</item>
         <item name="iconUnarchive">@drawable/ic_action_unarchive_dark</item>
         <item name="iconChangeColor">@drawable/ic_action_color_dark</item>
         <item name="iconFilter">@drawable/ic_action_filter_dark</item>
@@ -105,7 +105,7 @@
         <item name="iconAdd">@drawable/ic_action_add_dark</item>
         <item name="iconArchive">@drawable/ic_action_archive_dark</item>
         <item name="iconEdit">@drawable/ic_action_edit_dark</item>
-        <item name="iconNote">@drawable/note_image</item>
+        <item name="iconNote">@drawable/paper_clip2_dark_image</item>
         <item name="iconUnarchive">@drawable/ic_action_unarchive_dark</item>
         <item name="iconFilter">@drawable/ic_action_filter_dark</item>
         <item name="iconChangeColor">@drawable/ic_action_color_dark</item>

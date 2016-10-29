@@ -50,6 +50,9 @@ public class ShowHabitRootView extends BaseRootView
     @BindView(R.id.subtitleCard)
     SubtitleCard subtitleCard;
 
+    @BindView(R.id.noteCard)
+    NoteCard noteCard;
+
     @BindView(R.id.overviewCard)
     OverviewCard overviewCard;
 
@@ -149,6 +152,7 @@ public class ShowHabitRootView extends BaseRootView
         historyCard.setHabit(habit);
         streakCard.setHabit(habit);
         frequencyCard.setHabit(habit);
+        noteCard.setHabit(habit);
     }
 
     public interface Controller extends HistoryCard.Controller
