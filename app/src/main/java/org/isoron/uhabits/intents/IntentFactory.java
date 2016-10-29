@@ -27,6 +27,7 @@ import org.isoron.uhabits.*;
 import org.isoron.uhabits.activities.about.*;
 import org.isoron.uhabits.activities.habits.show.*;
 import org.isoron.uhabits.activities.intro.*;
+import org.isoron.uhabits.activities.notes.NoteActivity;
 import org.isoron.uhabits.activities.settings.*;
 import org.isoron.uhabits.models.*;
 
@@ -101,5 +102,10 @@ public class IntentFactory
         intent.setAction(Intent.ACTION_VIEW);
         intent.setData(Uri.parse(url));
         return intent;
+    }
+
+    public Intent startNoteACtivity(Context context)
+    {
+        return new Intent(context, NoteActivity.class);
     }
 }

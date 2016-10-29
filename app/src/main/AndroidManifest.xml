@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Copyright (C) 2016 Álinson Santos Xavier <isoron@gmail.com>
   ~
   ~ This file is part of Loop Habit Tracker.
@@ -16,44 +15,38 @@
   ~
   ~ You should have received a copy of the GNU General Public License along
   ~ with this program. If not, see <http://www.gnu.org/licenses/>.
-  -->
-
-<manifest
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.isoron.uhabits"
-    xmlns:android="http://schemas.android.com/apk/res/android"
     android:versionCode="25"
     android:versionName="1.6.2">
 
-    <uses-permission android:name="android.permission.VIBRATE"/>
-
+    <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission
         android:name="android.permission.READ_EXTERNAL_STORAGE"
-        android:maxSdkVersion="18"/>
-
+        android:maxSdkVersion="18" />
     <uses-permission
         android:name="android.permission.WRITE_EXTERNAL_STORAGE"
-        android:maxSdkVersion="18"/>
-
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+        android:maxSdkVersion="18" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
-        android:name="HabitsApplication"
+        android:name=".HabitsApplication"
         android:allowBackup="true"
         android:backupAgent=".HabitsBackupAgent"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/main_activity_title"
         android:supportsRtl="true"
         android:theme="@style/AppBaseTheme">
-
         <meta-data
             android:name="com.google.android.backup.api_key"
-            android:value="AEdPqrEAAAAI6aeWncbnMNo8E5GWeZ44dlc5cQ7tCROwFhOtiw"/>
+            android:value="AEdPqrEAAAAI6aeWncbnMNo8E5GWeZ44dlc5cQ7tCROwFhOtiw" />
 
         <activity
             android:name=".activities.habits.list.ListHabitsActivity"
             android:exported="true"
             android:label="@string/main_activity_title"
-            android:launchMode="singleTop"/>
+            android:launchMode="singleTop" />
 
         <activity-alias
             android:name=".MainActivity"
@@ -61,8 +54,9 @@
             android:launchMode="singleTop"
             android:targetActivity=".activities.habits.list.ListHabitsActivity">
             <intent-filter android:label="@string/app_name">
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity-alias>
 
@@ -71,134 +65,128 @@
             android:label="@string/title_activity_show_habit">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activities.habits.list.ListHabitsActivity"/>
+                android:value=".activities.habits.list.ListHabitsActivity" />
         </activity>
-
         <activity
             android:name=".activities.settings.SettingsActivity"
             android:label="@string/settings">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activities.habits.list.ListHabitsActivity"/>
+                android:value=".activities.habits.list.ListHabitsActivity" />
         </activity>
-
         <activity
             android:name=".activities.intro.IntroActivity"
             android:label=""
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
-
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".widgets.HabitPickerDialog"
             android:theme="@style/Theme.AppCompat.Light.Dialog">
             <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".activities.about.AboutActivity"
             android:label="@string/about">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activities.habits.list.ListHabitsActivity"/>
+                android:value=".activities.habits.list.ListHabitsActivity" />
         </activity>
 
         <receiver
             android:name=".widgets.CheckmarkWidgetProvider"
             android:label="@string/checkmark">
             <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
 
             <meta-data
                 android:name="android.appwidget.provider"
-                android:resource="@xml/widget_checkmark_info"/>
+                android:resource="@xml/widget_checkmark_info" />
         </receiver>
-
         <receiver
             android:name=".widgets.HistoryWidgetProvider"
             android:label="@string/history">
             <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
 
             <meta-data
                 android:name="android.appwidget.provider"
-                android:resource="@xml/widget_history_info"/>
+                android:resource="@xml/widget_history_info" />
         </receiver>
-
         <receiver
             android:name=".widgets.ScoreWidgetProvider"
             android:label="@string/habit_strength">
             <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
 
             <meta-data
                 android:name="android.appwidget.provider"
-                android:resource="@xml/widget_score_info"/>
+                android:resource="@xml/widget_score_info" />
         </receiver>
-
         <receiver
             android:name=".widgets.StreakWidgetProvider"
             android:label="@string/streaks">
             <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
 
             <meta-data
                 android:name="android.appwidget.provider"
-                android:resource="@xml/widget_streak_info"/>
+                android:resource="@xml/widget_streak_info" />
         </receiver>
-
         <receiver
             android:name=".widgets.FrequencyWidgetProvider"
             android:label="@string/frequency">
             <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
 
             <meta-data
                 android:name="android.appwidget.provider"
-                android:resource="@xml/widget_frequency_info"/>
+                android:resource="@xml/widget_frequency_info" />
         </receiver>
-
         <receiver android:name=".receivers.ReminderReceiver">
             <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
-
         <receiver android:name=".receivers.WidgetReceiver">
             <intent-filter>
-                <category android:name="android.intent.category.DEFAULT"/>
-                <action android:name="org.isoron.uhabits.ACTION_TOGGLE_REPETITION"/>
-                <data
-                    android:host="org.isoron.uhabits"
-                    android:scheme="content"/>
-            </intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
 
-            <intent-filter>
-                <category android:name="android.intent.category.DEFAULT"/>
-                <action android:name="org.isoron.uhabits.ACTION_ADD_REPETITION"/>
-                <data
-                    android:host="org.isoron.uhabits"
-                    android:scheme="content"/>
-            </intent-filter>
+                <action android:name="org.isoron.uhabits.ACTION_TOGGLE_REPETITION" />
 
-            <intent-filter>
-                <category android:name="android.intent.category.DEFAULT"/>
-                <action android:name="org.isoron.uhabits.ACTION_REMOVE_REPETITION"/>
                 <data
                     android:host="org.isoron.uhabits"
-                    android:scheme="content"/>
+                    android:scheme="content" />
+            </intent-filter>
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <action android:name="org.isoron.uhabits.ACTION_ADD_REPETITION" />
+
+                <data
+                    android:host="org.isoron.uhabits"
+                    android:scheme="content" />
+            </intent-filter>
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <action android:name="org.isoron.uhabits.ACTION_REMOVE_REPETITION" />
+
+                <data
+                    android:host="org.isoron.uhabits"
+                    android:scheme="content" />
             </intent-filter>
         </receiver>
 
         <!-- Pebble -->
         <receiver android:name=".receivers.PebbleReceiver">
             <intent-filter>
-                <action android:name="com.getpebble.action.app.RECEIVE"/>
+                <action android:name="com.getpebble.action.app.RECEIVE" />
             </intent-filter>
         </receiver>
 
@@ -209,8 +197,7 @@
             android:icon="@mipmap/ic_launcher"
             android:label="@string/app_name">
             <intent-filter>
-                <action
-                    android:name="com.twofortyfouram.locale.intent.action.EDIT_SETTING"/>
+                <action android:name="com.twofortyfouram.locale.intent.action.EDIT_SETTING" />
             </intent-filter>
         </activity>
 
@@ -219,9 +206,11 @@
             android:name=".automation.FireSettingReceiver"
             android:exported="true">
             <intent-filter>
-                <action android:name="com.twofortyfouram.locale.intent.action.FIRE_SETTING"/>
+                <action android:name="com.twofortyfouram.locale.intent.action.FIRE_SETTING" />
             </intent-filter>
         </receiver>
 
+        <activity android:name=".activities.notes.NoteActivity"></activity>
     </application>
+
 </manifest>

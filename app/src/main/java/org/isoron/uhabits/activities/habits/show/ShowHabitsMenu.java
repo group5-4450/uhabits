@@ -19,11 +19,13 @@
 
 package org.isoron.uhabits.activities.habits.show;
 
+import android.content.Intent;
 import android.support.annotation.*;
 import android.view.*;
 
 import org.isoron.uhabits.*;
 import org.isoron.uhabits.activities.*;
+import org.isoron.uhabits.activities.notes.*;
 
 import javax.inject.*;
 
@@ -51,8 +53,9 @@ public class ShowHabitsMenu extends BaseMenu
                 return true;
 
             case R.id.action_edit_note:
-                screen.showEditHabitDialog();
-                return true;
+                screen.showNoteScreen();
+
+
 
             default:
                 return false;

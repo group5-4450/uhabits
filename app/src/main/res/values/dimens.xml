@@ -31,4 +31,7 @@
     <dimen name="habitNameWidth">160dp</dimen>
     <dimen name="progressbarOffset">-6dp</dimen>
     <dimen name="checkmarkWidget_heightBreakpoint">55dp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
 </resources>

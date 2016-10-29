@@ -24,6 +24,7 @@ import android.support.annotation.*;
 import org.isoron.uhabits.activities.*;
 import org.isoron.uhabits.activities.common.dialogs.*;
 import org.isoron.uhabits.activities.habits.edit.*;
+import org.isoron.uhabits.activities.habits.list.ListHabitsScreen;
 import org.isoron.uhabits.models.*;
 
 import javax.inject.*;
@@ -31,6 +32,9 @@ import javax.inject.*;
 @ActivityScope
 public class ShowHabitScreen extends BaseScreen
 {
+    @NonNull
+    private final ListHabitsScreen screen;
+
     @NonNull
     private final Habit habit;
 
@@ -43,11 +47,13 @@ public class ShowHabitScreen extends BaseScreen
     @Inject
     public ShowHabitScreen(@NonNull BaseActivity activity,
                            @NonNull Habit habit,
+                           @NonNull ListHabitsScreen screen,
                            @NonNull ShowHabitRootView view,
                            @NonNull EditHabitDialogFactory editHabitDialogFactory)
     {
         super(activity);
         setRootView(view);
+        this.screen = screen;
         this.editHabitDialogFactory = editHabitDialogFactory;
         this.habit = habit;
     }
@@ -75,6 +81,11 @@ public class ShowHabitScreen extends BaseScreen
         activity.showDialog(dialog, "editHabit");
     }
 
+    public void showNoteHabitDialog()
+    {
+        screen.showNoteHabitScreen();
+    }
+
     public void showEditHistoryDialog()
     {
         if(controller == null) throw new IllegalStateException();
@@ -83,5 +94,9 @@ public class ShowHabitScreen extends BaseScreen
         dialog.setHabit(habit);
         dialog.setController(controller);
         dialog.show(activity.getSupportFragmentManager(), "historyEditor");
+    }
+    public void showNoteScreen()
+    {
+        screen.showNoteHabitScreen();
     }
 }

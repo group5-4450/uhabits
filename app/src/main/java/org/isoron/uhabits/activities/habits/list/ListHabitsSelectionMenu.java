@@ -212,7 +212,7 @@ public class ListHabitsSelectionMenu extends BaseSelectionMenu
 
     private void showNoteScreen(@NonNull Habit firstHabit)
     {
-        screen.showNoteHabitScreen(firstHabit);
+        screen.showNoteHabitScreen();
     }
 
 }
