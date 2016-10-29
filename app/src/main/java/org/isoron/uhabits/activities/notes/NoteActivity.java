@@ -55,9 +55,7 @@ public class NoteActivity extends AppCompatActivity {
         appComponent = app.getComponent();
         habitList = appComponent.getHabitList();
         commandRunner = appComponent.getCommandRunner();
-        Log.d("tag", "still okay");
         originalHabit = habitList.getById(habitID);
-        Log.d("tag", originalHabit.getDescription());
 
         modifiedHabit = originalHabit;
     }
@@ -76,7 +74,9 @@ public class NoteActivity extends AppCompatActivity {
     // Save the Note Data to the SQL File
     public void saveNote(View view) {
 
-        modifiedHabit.setDescription("New Description!");
+        TextView newtext = (TextView)findViewById(R.id.editText4);
+        modifiedHabit.setNote(newtext.getText().toString());
+
         // Save to the SQLite database here
         Command command = appComponent.getEditHabitCommandFactory().
                 create(habitList, originalHabit, modifiedHabit);

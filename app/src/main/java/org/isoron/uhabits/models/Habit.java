@@ -46,6 +46,9 @@ public class Habit
     private String description;
 
     @NonNull
+    private String note;
+
+    @NonNull
     private Frequency frequency;
 
     @NonNull
@@ -108,6 +111,7 @@ public class Habit
     {
         this.name = model.getName();
         this.description = model.getDescription();
+        this.note = model.getNote();
         this.color = model.getColor();
         this.archived = model.isArchived();
         this.frequency = model.frequency;
@@ -152,6 +156,17 @@ public class Habit
     public void setDescription(@NonNull String description)
     {
         this.description = description;
+    }
+
+    @NonNull
+    public String getNote()
+    {
+        return note;
+    }
+
+    public void setNote(@NonNull String note)
+    {
+        this.note = note;
     }
 
     @NonNull

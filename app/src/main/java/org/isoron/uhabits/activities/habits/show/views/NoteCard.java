@@ -57,7 +57,7 @@ public class NoteCard extends HabitCard
 
 
         TextView newtext = (TextView) findViewById(R.id.textView6);
-        newtext.setText(habit.getDescription());
+        newtext.setText(habit.getNote());
 
 
 
