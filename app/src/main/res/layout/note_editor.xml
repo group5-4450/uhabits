@@ -11,11 +11,12 @@
         android:weightSum="1">
 
         <TextView
-            android:text="TextView"
             android:layout_width="349dp"
+            android:hint="@string/note_edit"
             android:layout_height="match_parent"
             android:id="@+id/textView"
-            android:layout_weight="0.09" />
+            android:layout_weight="0.09"
+            android:paddingTop="12dp"/>
     </LinearLayout>
 
     <LinearLayout
