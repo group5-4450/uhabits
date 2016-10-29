@@ -83,7 +83,7 @@ public class ShowHabitScreen extends BaseScreen
 
     public void showNoteHabitDialog()
     {
-        screen.showNoteHabitScreen();
+        screen.showNoteHabitScreen(habit);
     }
 
     public void showEditHistoryDialog()
@@ -97,6 +97,6 @@ public class ShowHabitScreen extends BaseScreen
     }
     public void showNoteScreen()
     {
-        screen.showNoteHabitScreen();
+        screen.showNoteHabitScreen(habit);
     }
 }

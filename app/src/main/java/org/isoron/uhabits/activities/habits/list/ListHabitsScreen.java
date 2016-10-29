@@ -20,6 +20,7 @@
 package org.isoron.uhabits.activities.habits.list;
 
 import android.content.*;
+import android.os.Bundle;
 import android.support.annotation.*;
 import android.util.Log;
 
@@ -244,10 +245,16 @@ public class ListHabitsScreen extends BaseScreen
         themeSwitcher.toggleNightMode();
         activity.restartWithFade();
     }
-    public void showNoteHabitScreen()
+    public void showNoteHabitScreen(Habit habit)
     {
+        // Creating a bundle of information to pass to the activity
+        Bundle args = new Bundle();
+        args.putLong("habitId", habit.getId());
+
         Log.d("tag", "actionItemVale: not NULL");
         Intent intent = intentFactory.startNoteACtivity(activity);
+
+        intent.putExtras(args);
         activity.startActivity(intent);
 
     }
