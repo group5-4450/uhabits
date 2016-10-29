@@ -45,10 +45,7 @@ public class NoteActivity extends AppCompatActivity {
         Log.d("tag", "habitId is " + extras);
         Log.d("tag", "habitId is " + habitID);
 
-        TextView newtext = (TextView) findViewById(R.id.textView2);
-        newtext.setText("Habit Id is: " + habitID);
-
-
+        TextView prevtext = (TextView)findViewById(R.id.editText4);
         HabitsApplication app =
                 (HabitsApplication) getContext().getApplicationContext();
 
@@ -56,7 +53,10 @@ public class NoteActivity extends AppCompatActivity {
         habitList = appComponent.getHabitList();
         commandRunner = appComponent.getCommandRunner();
         originalHabit = habitList.getById(habitID);
-
+        if(originalHabit.getNote() != null)
+        {
+            prevtext.append(originalHabit.getNote());
+        }
         modifiedHabit = originalHabit;
     }
 

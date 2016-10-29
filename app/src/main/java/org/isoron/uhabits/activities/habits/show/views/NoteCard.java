@@ -33,8 +33,8 @@ import butterknife.*;
 
 public class NoteCard extends HabitCard
 {
-    @BindView(R.id.questionLabel)
-    TextView questionLabel;
+    @BindView(R.id.noteLabel)
+    TextView noteLabel;
 
 
     public NoteCard(Context context, AttributeSet attrs)
@@ -49,21 +49,12 @@ public class NoteCard extends HabitCard
         Habit habit = getHabit();
         int color = ColorUtils.getColor(getContext(), habit.getColor());
 
-
-        questionLabel.setVisibility(VISIBLE);
-
-        questionLabel.setTextColor(color);
-        questionLabel.setText("NOTES:");
-
+        noteLabel.setTextColor(color);
 
         TextView newtext = (TextView) findViewById(R.id.textView6);
         newtext.setText(habit.getNote());
 
-
-
         if (habit.hasReminder()) updateReminderText(habit.getReminder());
-
-        if (habit.getDescription().isEmpty()) questionLabel.setVisibility(GONE);
 
         invalidate();
     }
@@ -71,16 +62,18 @@ public class NoteCard extends HabitCard
     private void init()
     {
         inflate(getContext(), R.layout.show_habit_note, this);
-        ButterKnife.bind(this);
 
-        if (isInEditMode()) initEditMode();
+        ButterKnife.bind(this);
+        noteLabel.setVisibility(VISIBLE);
+
+        //if (isInEditMode()) initEditMode();
     }
 
     @SuppressLint("SetTextI18n")
     private void initEditMode()
     {
-        questionLabel.setTextColor(ColorUtils.getAndroidTestColor(1));
-        questionLabel.setText("Have you meditated today?");
+        noteLabel.setTextColor(ColorUtils.getAndroidTestColor(1));
+        noteLabel.setText("Have you meditated today?");
 
     }
 

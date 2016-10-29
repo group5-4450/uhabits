@@ -20,10 +20,11 @@
 
 <merge xmlns:android="http://schemas.android.com/apk/res/android">
     <TextView
-        android:id="@+id/questionLabel"
+        android:id="@+id/noteLabel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
+        android:text="Notes"
         android:textColor="?mediumContrastTextColor"
         android:textSize="@dimen/regularTextSize"
         />
