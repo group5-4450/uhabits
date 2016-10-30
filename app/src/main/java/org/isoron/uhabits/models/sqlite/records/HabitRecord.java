@@ -42,7 +42,7 @@ public class HabitRecord extends Model implements SQLiteRecord
     public static String SELECT =
         "select id, color, description, freq_den, freq_num, " +
         "name, position, reminder_hour, reminder_min, " +
-        "highlight, archived, reminder_days from habits ";
+        "highlight, archived, reminder_days, note from habits ";
 
     @Column(name = "name")
     public String name;
@@ -79,6 +79,9 @@ public class HabitRecord extends Model implements SQLiteRecord
 
     @Column(name = "archived")
     public Integer archived;
+
+    @Column(name = "note")
+    public String note;
 
     public HabitRecord()
     {
@@ -158,6 +161,7 @@ public class HabitRecord extends Model implements SQLiteRecord
             this.reminderMin = reminder.getMinute();
             this.reminderDays = reminder.getDays().toInteger();
         }
+        this.note = model.getNote();
     }
 
     @Override
@@ -175,6 +179,7 @@ public class HabitRecord extends Model implements SQLiteRecord
         highlight = c.getInt(9);
         archived = c.getInt(10);
         reminderDays = c.getInt(11);
+        note = c.getString(12);
     }
 
     public void copyTo(Habit habit)
@@ -191,6 +196,7 @@ public class HabitRecord extends Model implements SQLiteRecord
             habit.setReminder(new Reminder(reminderHour, reminderMin,
                 new WeekdayList(reminderDays)));
         }
+        habit.setNote(this.note);
     }
 
     /**
