@@ -31,6 +31,7 @@ import org.isoron.uhabits.utils.*;
 
 import static org.isoron.uhabits.utils.AttributeSetUtils.*;
 import static org.isoron.uhabits.utils.InterfaceUtils.*;
+import android.app.AlertDialog;
 
 public class RingView extends View
 {
@@ -245,7 +246,10 @@ public class RingView extends View
         inactiveColor = ColorUtils.setAlpha(inactiveColor, 0.1f);
 
         rect = new RectF();
+
+        //this.setOnClickListener(RV_listener);
     }
+
 
     private void reallocateCache()
     {
