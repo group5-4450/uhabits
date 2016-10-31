@@ -68,8 +68,6 @@ public class ScoreCard extends HabitCard
         init();
     }
 
-    public TextView getTitle(){ return title; }
-
     @NonNull
     public static DateUtils.TruncateField getTruncateField(int bucketSize)
     {

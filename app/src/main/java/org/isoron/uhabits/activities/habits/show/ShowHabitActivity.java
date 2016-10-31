@@ -54,7 +54,7 @@ public class ShowHabitActivity extends BaseActivity
             .build();
 
         ShowHabitRootView rootView = component.getRootView();
-        rootView.scoreCard.getTitle().setOnClickListener(scoreHelp_listener);
+        rootView.overviewCard.getScoreRing().setOnClickListener(scoreHelp_listener);
         ShowHabitScreen screen = component.getScreen();
 
         setScreen(screen);

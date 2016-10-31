@@ -72,6 +72,8 @@ public class OverviewCard extends HabitCard
         init();
     }
 
+    public RingView getScoreRing(){ return scoreRing; }
+
     @Override
     protected void refreshData()
     {
