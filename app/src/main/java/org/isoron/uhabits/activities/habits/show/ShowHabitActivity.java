@@ -23,6 +23,7 @@ import android.content.*;
 import android.net.*;
 import android.os.*;
 import android.support.annotation.*;
+import android.view.View;
 
 import org.isoron.uhabits.*;
 import org.isoron.uhabits.activities.*;
@@ -53,6 +54,7 @@ public class ShowHabitActivity extends BaseActivity
             .build();
 
         ShowHabitRootView rootView = component.getRootView();
+        rootView.overviewCard.getScoreRing().setOnClickListener(scoreHelp_listener);
         ShowHabitScreen screen = component.getScreen();
 
         setScreen(screen);
@@ -62,6 +64,15 @@ public class ShowHabitActivity extends BaseActivity
 
         screen.reattachDialogs();
     }
+
+    View.OnClickListener scoreHelp_listener = new View.OnClickListener() {
+        public void onClick(View v) {
+            String url = getString(R.string.scoreHelpURL);
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.setData(Uri.parse(url));
+            startActivity(intent);
+        }
+    };
 
     @NonNull
     private Habit getHabitFromIntent()

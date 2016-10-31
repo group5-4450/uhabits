@@ -19,6 +19,7 @@
   -->
 <resources>
     <string name="helpURL">http://loophabits.org/faq.html</string>
+    <string name="scoreHelpURL">http://loophabits.org/faq.html#q10</string>
     <string name="playStoreURL">market://details?id=org.isoron.uhabits</string>
     <string name="feedbackURL" formatted="false">mailto:dev@loophabits.org?subject=Feedback%20about%20Loop%20Habit%20Tracker</string>
     <string name="bugReportURL" formatted="false">mailto:dev@loophabits.org?subject=Bug%20Report%20-%20Loop%20Habit%20Tracker</string>
