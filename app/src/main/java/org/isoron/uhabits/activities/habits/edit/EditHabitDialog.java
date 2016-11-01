@@ -48,5 +48,6 @@ public class EditHabitDialog extends BaseDialog
         Command command = appComponent.getEditHabitCommandFactory().
             create(habitList, originalHabit, modifiedHabit);
         commandRunner.execute(command, originalHabit.getId());
+        
     }
 }

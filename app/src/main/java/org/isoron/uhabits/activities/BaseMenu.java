@@ -20,6 +20,7 @@
 package org.isoron.uhabits.activities;
 
 import android.support.annotation.*;
+import android.support.v7.app.AppCompatActivity;
 import android.view.*;
 
 import javax.annotation.*;

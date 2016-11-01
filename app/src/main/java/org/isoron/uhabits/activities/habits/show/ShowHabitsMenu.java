@@ -25,7 +25,10 @@ import android.view.*;
 
 import org.isoron.uhabits.*;
 import org.isoron.uhabits.activities.*;
+import org.isoron.uhabits.activities.habits.edit.EditHabitDialogFactory;
+import org.isoron.uhabits.activities.habits.list.ListHabitsScreen;
 import org.isoron.uhabits.activities.notes.*;
+import org.isoron.uhabits.models.Habit;
 
 import javax.inject.*;
 
@@ -43,6 +46,8 @@ public class ShowHabitsMenu extends BaseMenu
         this.screen = screen;
     }
 
+
+
     @Override
     public boolean onItemSelected(@NonNull MenuItem item)
     {
@@ -54,7 +59,8 @@ public class ShowHabitsMenu extends BaseMenu
 
             case R.id.action_edit_note:
                 screen.showNoteScreen();
-
+                invalidate();
+                return true;
 
 
             default:
@@ -67,4 +73,7 @@ public class ShowHabitsMenu extends BaseMenu
     {
         return R.menu.show_habit;
     }
+
+
+
 }

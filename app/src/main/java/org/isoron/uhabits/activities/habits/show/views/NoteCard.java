@@ -22,11 +22,13 @@ package org.isoron.uhabits.activities.habits.show.views;
 import android.annotation.*;
 import android.content.*;
 import android.content.res.*;
+import android.support.annotation.Nullable;
 import android.util.*;
 import android.widget.*;
 
 import org.isoron.uhabits.*;
 import org.isoron.uhabits.models.*;
+import org.isoron.uhabits.tasks.TaskRunner;
 import org.isoron.uhabits.utils.*;
 
 import butterknife.*;
@@ -36,6 +38,8 @@ public class NoteCard extends HabitCard
     @BindView(R.id.noteLabel)
     TextView noteLabel;
 
+    @Nullable
+    private TaskRunner taskRunner;
 
     public NoteCard(Context context, AttributeSet attrs)
     {
@@ -58,6 +62,8 @@ public class NoteCard extends HabitCard
 
         invalidate();
     }
+
+
 
     private void init()
     {

@@ -21,7 +21,9 @@ import org.isoron.uhabits.*;
 
 import static org.isoron.uhabits.HabitsApplication.getContext;
 
-public class NoteActivity extends AppCompatActivity {
+public class NoteActivity extends BaseActivity {
+
+
 
 
     protected Habit originalHabit;
@@ -48,6 +50,8 @@ public class NoteActivity extends AppCompatActivity {
         TextView prevtext = (TextView)findViewById(R.id.editText4);
         HabitsApplication app =
                 (HabitsApplication) getContext().getApplicationContext();
+
+
 
         appComponent = app.getComponent();
         habitList = appComponent.getHabitList();
@@ -82,6 +86,9 @@ public class NoteActivity extends AppCompatActivity {
                 create(habitList, originalHabit, modifiedHabit);
         commandRunner.execute(command, originalHabit.getId());
 
+        restartWithFade();
+
+
         // Display Message and close
         Context context = getApplicationContext();
         CharSequence text = "Saved Note Changes!";
@@ -89,4 +96,6 @@ public class NoteActivity extends AppCompatActivity {
         Toast.makeText(context, text, duration).show();
         finish();
     }
+
+
 }

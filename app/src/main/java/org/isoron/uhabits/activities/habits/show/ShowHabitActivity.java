@@ -82,4 +82,8 @@ public class ShowHabitActivity extends BaseActivity
         if (habit == null) throw new RuntimeException("habit not found");
         return habit;
     }
+
+
+
+
 }
