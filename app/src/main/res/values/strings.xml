@@ -50,6 +50,10 @@
     <string name="times_every">times in</string>
     <string name="days">days</string>
     <string name="reminder">Reminder</string>
+    <string name="numerical_habit">Numerical Habit</string>
+    <string name="numeric_text">Enter a numeric value</string>
+    <string name="type_numeric">Numeric</string>
+    <string name="type_regular">Regular</string>
     <string name="discard">Discard</string>
     <string name="save">Save</string>
     <string name="streaks">Streaks</string>

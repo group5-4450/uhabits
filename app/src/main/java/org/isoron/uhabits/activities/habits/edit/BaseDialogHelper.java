@@ -21,6 +21,7 @@ package org.isoron.uhabits.activities.habits.edit;
 
 import android.annotation.*;
 import android.support.v4.app.*;
+import android.util.Log;
 import android.view.*;
 import android.widget.*;
 
@@ -61,6 +62,9 @@ public class BaseDialogHelper
     @BindView(R.id.llReminderDays)
     ViewGroup llReminderDays;
 
+    @BindView(R.id.numericSwitch)
+    Switch numericSwitch;
+
     public BaseDialogHelper(DialogFragment frag, View view)
     {
         this.frag = frag;
@@ -72,7 +76,15 @@ public class BaseDialogHelper
         if (habit.getName() != null) tvName.setText(habit.getName());
         if (habit.getDescription() != null)
             tvDescription.setText(habit.getDescription());
-
+        Log.d("BaseDialogHelper off", "\n" + habit.getType());
+        if(habit.getType().equals(numericSwitch.getTextOff()))
+        {
+            numericSwitch.setChecked(false);
+        }
+        else if(habit.getType().equals(numericSwitch.getTextOn()))
+        {
+            numericSwitch.setChecked(true);
+        }
         populateColor(habit.getColor());
         populateFrequencyFields(habit);
         populateReminderFields(habit);
@@ -82,6 +94,9 @@ public class BaseDialogHelper
     {
         habit.setName(tvName.getText().toString().trim());
         habit.setDescription(tvDescription.getText().toString().trim());
+        // checks to see if the button isn't checked and type is null
+        habit.setType(habit.getType());
+        Log.d("BaseDialogHelper off", "\n" + habit.getType());
         String freqNum = tvFreqNum.getText().toString();
         String freqDen = tvFreqDen.getText().toString();
         if (!freqNum.isEmpty() && !freqDen.isEmpty())

@@ -23,7 +23,11 @@ import android.os.*;
 import android.support.annotation.*;
 import android.support.v7.app.*;
 import android.text.format.*;
+import android.util.Log;
 import android.view.*;
+import android.widget.ImageButton;
+import android.widget.Switch;
+import android.widget.TextView;
 
 import com.android.datetimepicker.time.*;
 
@@ -61,6 +65,14 @@ public abstract class BaseDialog extends AppCompatDialogFragment
 
     private ColorPickerDialogFactory colorPickerDialogFactory;
 
+    private Switch numericalSwitch;
+
+    private ImageButton numericPopUpIcon;
+
+    private String numericValue = null;
+
+    TextView tvName;
+
     @Override
     public void onActivityCreated(Bundle savedInstanceState)
     {
@@ -77,6 +89,8 @@ public abstract class BaseDialog extends AppCompatDialogFragment
                              Bundle savedInstanceState)
     {
         View view = inflater.inflate(R.layout.edit_habit, container, false);
+        numericalSwitch = (Switch) view.findViewById(R.id.numericSwitch);
+        numericPopUpIcon = (ImageButton) view.findViewById(R.id.numericPopUpIcon);
 
         HabitsApplication app =
             (HabitsApplication) getContext().getApplicationContext();
@@ -114,6 +128,7 @@ public abstract class BaseDialog extends AppCompatDialogFragment
     {
         super.onSaveInstanceState(outState);
         outState.putInt("color", modifiedHabit.getColor());
+        outState.putString("type", modifiedHabit.getType());
         if (modifiedHabit.hasReminder())
         {
             Reminder reminder = modifiedHabit.getReminder();
@@ -179,6 +194,41 @@ public abstract class BaseDialog extends AppCompatDialogFragment
         if (!helper.validate(modifiedHabit)) return;
         saveHabit();
         dismiss();
+    }
+
+    @OnCheckedChanged(R.id.numericSwitch)
+    void onNumericSwitchChanged()
+    {
+        if(numericalSwitch.isChecked())
+        {
+            numericPopUpIcon.setVisibility(View.VISIBLE);
+            Log.d("BaseDialog on", "\n" + modifiedHabit.getType());
+            Log.d("BaseDialog on", "\n" + modifiedHabit.getType().equals(numericalSwitch.getTextOff()));
+            if(modifiedHabit.getType().equals(numericalSwitch.getTextOff()))
+            {
+                numericalSwitch.setChecked(true);
+                modifiedHabit.setType((String) numericalSwitch.getTextOn());
+                NumericalHabitDialog dialog = new NumericalHabitDialog(numericalSwitch, modifiedHabit);
+                dialog.show(getFragmentManager(),"dialog");
+            }
+        }
+        else
+        {
+            numericalSwitch.setChecked(false);
+            modifiedHabit.setType((String) numericalSwitch.getTextOff());
+            Log.d("BaseDialog off", "\n" + modifiedHabit.getType());
+            numericPopUpIcon.setVisibility(View.INVISIBLE);
+        }
+    }
+
+    @OnClick(R.id.numericPopUpIcon)
+    void onNumericIconClick()
+    {
+        if(numericPopUpIcon.getVisibility() == View.VISIBLE)
+        {
+            NumericalHabitDialog dialog = new NumericalHabitDialog(numericalSwitch, modifiedHabit);
+            dialog.show(getFragmentManager(),"dialog");
+        }
     }
 
     @OnClick(R.id.tvReminderDays)

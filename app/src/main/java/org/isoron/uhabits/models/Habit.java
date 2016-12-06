@@ -71,6 +71,9 @@ public class Habit
 
     private ModelObservable observable = new ModelObservable();
 
+    @NonNull
+    private String type;
+
     /**
      * Constructs a habit with default attributes.
      * <p>
@@ -80,6 +83,7 @@ public class Habit
     @Inject
     Habit(@NonNull ModelFactory factory)
     {
+        this.type = "Regular";
         this.color = 5;
         this.archived = false;
         this.frequency = new Frequency(3, 7);
@@ -112,6 +116,7 @@ public class Habit
         this.archived = model.isArchived();
         this.frequency = model.frequency;
         this.reminder = model.reminder;
+        this.type = model.getType();
         observable.notifyListeners();
     }
 
@@ -185,6 +190,17 @@ public class Habit
     public void setName(@NonNull String name)
     {
         this.name = name;
+    }
+
+    @NonNull
+    public String getType()
+    {
+        return type;
+    }
+
+    public void setType(@NonNull String type)
+    {
+        this.type = type;
     }
 
     public ModelObservable getObservable()
