@@ -33,6 +33,7 @@ import android.view.*;
 import android.widget.*;
 
 import org.isoron.uhabits.*;
+import org.isoron.uhabits.models.Habit;
 import org.isoron.uhabits.utils.*;
 
 import java.io.*;
@@ -209,7 +210,27 @@ public class BaseScreen
             TextView tv = (TextView) snackbar.getView().findViewById(tvId);
             tv.setTextColor(Color.WHITE);
         }
+        else if (stringId == R.string.numerical_toggle){
+            snackbar.setText("custom message!");
+        }
         else snackbar.setText(stringId);
+        snackbar.show();
+    }
+
+    public void showCustomMessage(Habit habit, @StringRes Integer stringId)
+    {
+        String customString = "" + habit.getCount().toString() + " out of " + habit.getNumerical().toString();
+        if (stringId == null || rootView == null) return;
+        if (snackbar == null)
+        {
+
+            snackbar = Snackbar.make(rootView, customString, Snackbar.LENGTH_SHORT);
+            int tvId = android.support.design.R.id.snackbar_text;
+            TextView tv = (TextView) snackbar.getView().findViewById(tvId);
+            tv.setTextColor(Color.WHITE);
+        }
+
+        else snackbar.setText(customString);
         snackbar.show();
     }
 

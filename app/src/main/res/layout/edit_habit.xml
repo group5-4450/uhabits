@@ -148,13 +148,14 @@
                 android:textOn="@string/type_numeric"
                 android:layout_weight="0.03" />
 
+
             <ImageButton
                 android:id="@+id/numericPopUpIcon"
-                style="@style/dialogFormLabel"
-                android:contentDescription="@string/color_picker_default_title"
-                android:src="?dialogIconChangeColor"
+                android:contentDescription="Numeric Icon"
+                android:src="@drawable/ic_number"
                 android:layout_width="52dp"
                 android:layout_height="match_parent"
+                android:background="@drawable/color_picker_swatch"
                 android:visibility="gone"/>
 
         </LinearLayout>

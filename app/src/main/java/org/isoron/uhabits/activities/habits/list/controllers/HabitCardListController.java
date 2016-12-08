@@ -85,6 +85,12 @@ public class HabitCardListController implements HabitCardListView.Controller
         if (habitListener != null) habitListener.onInvalidToggle();
     }
 
+    @Override
+    public void onNumericalToggle(Habit habit)
+    {
+        if (habitListener != null) habitListener.onNumericalToggle(habit);
+    }
+
     /**
      * Called when the user clicks at some item.
      *

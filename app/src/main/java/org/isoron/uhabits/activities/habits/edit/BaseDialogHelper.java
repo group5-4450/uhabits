@@ -65,6 +65,9 @@ public class BaseDialogHelper
     @BindView(R.id.numericSwitch)
     Switch numericSwitch;
 
+    //@BindView(R.id.numericalValue)
+    //EditText numericalField;
+
     public BaseDialogHelper(DialogFragment frag, View view)
     {
         this.frag = frag;
@@ -80,11 +83,14 @@ public class BaseDialogHelper
         if(habit.getType().equals(numericSwitch.getTextOff()))
         {
             numericSwitch.setChecked(false);
+            habit.setNumerical(0);
+            habit.setCount(0);
         }
         else if(habit.getType().equals(numericSwitch.getTextOn()))
         {
             numericSwitch.setChecked(true);
         }
+
         populateColor(habit.getColor());
         populateFrequencyFields(habit);
         populateReminderFields(habit);
@@ -96,6 +102,7 @@ public class BaseDialogHelper
         habit.setDescription(tvDescription.getText().toString().trim());
         // checks to see if the button isn't checked and type is null
         habit.setType(habit.getType());
+        habit.setNumerical(habit.getNumerical());
         Log.d("BaseDialogHelper off", "\n" + habit.getType());
         String freqNum = tvFreqNum.getText().toString();
         String freqDen = tvFreqDen.getText().toString();
@@ -104,7 +111,17 @@ public class BaseDialogHelper
             int numerator = Integer.parseInt(freqNum);
             int denominator = Integer.parseInt(freqDen);
             habit.setFrequency(new Frequency(numerator, denominator));
+
         }
+
+        if (habit.getType().equals(numericSwitch.getTextOff())){
+            habit.setNumerical(0);
+            habit.setCount(0);
+
+        }
+        habit.setDayCount(DateUtils.getStartOfToday());
+        Log.d("numerical", habit.getNumerical().toString());
+
     }
 
     void populateColor(int paletteColor)

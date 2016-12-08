@@ -19,13 +19,24 @@
 
 package org.isoron.uhabits.activities.habits.list.controllers;
 
+import android.content.SharedPreferences;
 import android.support.annotation.*;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 
 import com.google.auto.factory.*;
 
+import org.isoron.uhabits.AppComponent;
+import org.isoron.uhabits.R;
+import org.isoron.uhabits.activities.BaseActivity;
 import org.isoron.uhabits.activities.habits.list.views.*;
+import org.isoron.uhabits.commands.Command;
 import org.isoron.uhabits.models.*;
+import org.isoron.uhabits.models.sqlite.records.HabitRecord;
 import org.isoron.uhabits.preferences.*;
+import org.isoron.uhabits.utils.DateUtils;
+
+import static android.content.Context.MODE_PRIVATE;
 
 @AutoFactory
 public class CheckmarkButtonController
@@ -41,6 +52,8 @@ public class CheckmarkButtonController
 
     @NonNull
     private Habit habit;
+
+    private HabitRecord habitRecord;
 
     private long timestamp;
 
@@ -72,8 +85,41 @@ public class CheckmarkButtonController
 
     public void performToggle()
     {
-        if (view != null) view.toggle();
-        if (listener != null) listener.onToggle(habit, timestamp);
+        // Gets the record of the habit using the habit's id
+        habitRecord = HabitRecord.get(habit.getId());
+        Log.d("Frequency", "" + habitRecord.numerical);
+
+        if (habit.getDayCount() != DateUtils.getStartOfToday()){
+            habit.setDayCount(DateUtils.getStartOfToday());
+            habit.setCount(0);
+
+        }
+        // WE CHANGED THIS!
+        if ((!habit.getType().equals("Regular")) && (habit.getNumerical() != 0) && (DateUtils.getStartOfToday() == timestamp)){
+
+            if (habit.getCount() < habit.getNumerical() - 1){
+                habit.setCount(habit.getCount()+ 1);
+                Log.d("count", "increased");
+                Log.d("count", "" + habit.getCount());
+
+                listener.onNumericalToggle(habit);
+            }
+            else {
+                Log.d("count", "equals!");
+                if (view != null) view.toggle();
+                if (listener != null) listener.onToggle(habit, timestamp);
+
+            }
+            
+        }
+        else {
+            Log.d("normal", "normal");
+            if (view != null) view.toggle();
+            if (listener != null) listener.onToggle(habit, timestamp);
+        }
+
+        habitRecord.copyFrom(habit);
+        habitRecord.save();
     }
 
     public void setListener(@Nullable Listener listener)
@@ -92,6 +138,8 @@ public class CheckmarkButtonController
          * Called when the user's attempt to perform a toggle is rejected.
          */
         void onInvalidToggle();
+
+        void onNumericalToggle(Habit habit);
 
 
         void onToggle(@NonNull Habit habit, long timestamp);

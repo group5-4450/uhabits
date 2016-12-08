@@ -67,12 +67,21 @@ public class Habit
     private CheckmarkList checkmarks;
 
     @Nullable
+    private Integer numerical;
+
+    @Nullable
+    private Integer count;
+
+    @Nullable
+    private Long dayCount;
+
+    @Nullable
     private Reminder reminder;
 
     private ModelObservable observable = new ModelObservable();
 
     @NonNull
-    private String type;
+    private String typeN;
 
     /**
      * Constructs a habit with default attributes.
@@ -83,7 +92,7 @@ public class Habit
     @Inject
     Habit(@NonNull ModelFactory factory)
     {
-        this.type = "Regular";
+        this.typeN = "Regular";
         this.color = 5;
         this.archived = false;
         this.frequency = new Frequency(3, 7);
@@ -116,7 +125,10 @@ public class Habit
         this.archived = model.isArchived();
         this.frequency = model.frequency;
         this.reminder = model.reminder;
-        this.type = model.getType();
+        this.typeN = model.getType();
+        this.numerical = model.getNumerical();
+        this.count = model.getCount();
+        this.dayCount = model.getDayCount();
         observable.notifyListeners();
     }
 
@@ -195,17 +207,50 @@ public class Habit
     @NonNull
     public String getType()
     {
-        return type;
+        return typeN;
     }
 
-    public void setType(@NonNull String type)
+    public void setType(@NonNull String typeN)
     {
-        this.type = type;
+        this.typeN = typeN;
     }
 
     public ModelObservable getObservable()
     {
         return observable;
+    }
+
+    @Nullable
+    public Integer getNumerical()
+    {
+        return numerical;
+    }
+
+    public void setNumerical(@NonNull Integer numerical)
+    {
+        this.numerical = numerical;
+    }
+
+    @Nullable
+    public Integer getCount()
+    {
+        return count;
+    }
+
+    public void setCount(@NonNull Integer count)
+    {
+        this.count = count;
+    }
+
+    @Nullable
+    public Long getDayCount()
+    {
+        return dayCount;
+    }
+
+    public void setDayCount(@NonNull Long dayCount)
+    {
+        this.dayCount = dayCount;
     }
 
     /**

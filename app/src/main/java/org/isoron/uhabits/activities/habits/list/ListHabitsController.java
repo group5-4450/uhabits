@@ -20,6 +20,7 @@
 package org.isoron.uhabits.activities.habits.list;
 
 import android.support.annotation.*;
+import android.util.Log;
 
 import org.isoron.uhabits.*;
 import org.isoron.uhabits.activities.*;
@@ -27,6 +28,7 @@ import org.isoron.uhabits.activities.habits.list.controllers.*;
 import org.isoron.uhabits.activities.habits.list.model.*;
 import org.isoron.uhabits.commands.*;
 import org.isoron.uhabits.models.*;
+import org.isoron.uhabits.models.sqlite.records.HabitRecord;
 import org.isoron.uhabits.preferences.*;
 import org.isoron.uhabits.tasks.*;
 import org.isoron.uhabits.utils.*;
@@ -156,6 +158,12 @@ public class ListHabitsController
         screen.showMessage(R.string.long_press_to_toggle);
     }
 
+
+    public void onNumericalToggle(Habit habit)
+    {
+        screen.showCustomMessage(habit, R.string.numerical_toggle);
+    }
+
     public void onRepairDB()
     {
         taskRunner.execute(() -> {
@@ -203,7 +211,7 @@ public class ListHabitsController
     public void onToggle(@NonNull Habit habit, long timestamp)
     {
         commandRunner.execute(new ToggleRepetitionCommand(habit, timestamp),
-            habit.getId());
+                habit.getId());
     }
 
     private void onFirstRun()

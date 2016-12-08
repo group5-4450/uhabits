@@ -60,6 +60,7 @@
         <item name="iconFrequency">@drawable/ic_repeat_black</item>
         <item name="iconReminder">@drawable/ic_alarm_black</item>
         <item name="dialogIconChangeColor">@drawable/ic_action_color_light</item>
+        <item name="dialogIconNumeric">@drawable/ic_number</item>
         <item name="toolbarPopupTheme">@style/ThemeOverlay.AppCompat.Light</item>
 
         <item name="aboutScreenColor">@color/blue_800</item>

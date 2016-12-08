@@ -20,6 +20,7 @@
 package org.isoron.uhabits.activities.habits.list.views;
 
 import android.content.*;
+import android.util.Log;
 import android.view.*;
 import android.widget.*;
 
@@ -66,6 +67,7 @@ public class CheckmarkButtonView extends TextView
                      Checkmark.CHECKED_EXPLICITLY);
 
         performHapticFeedback(HapticFeedbackConstants.LONG_PRESS);
+
         updateText();
     }
 

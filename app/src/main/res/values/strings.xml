@@ -51,7 +51,7 @@
     <string name="days">days</string>
     <string name="reminder">Reminder</string>
     <string name="numerical_habit">Numerical Habit</string>
-    <string name="numeric_text">Enter a numeric value</string>
+    <string name="numeric_text">Enter frequency:</string>
     <string name="type_numeric">Numeric</string>
     <string name="type_regular">Regular</string>
     <string name="discard">Discard</string>
@@ -59,6 +59,7 @@
     <string name="streaks">Streaks</string>
     <string name="no_habits_found">You have no active habits</string>
     <string name="long_press_to_toggle">Press-and-hold to check or uncheck</string>
+    <string name="numerical_toggle">Almost There!</string>
     <string name="reminder_off">Off</string>
     <string name="validation_name_should_not_be_blank">Name cannot be blank.</string>
     <string name="validation_number_should_be_positive">Number must be positive.</string>

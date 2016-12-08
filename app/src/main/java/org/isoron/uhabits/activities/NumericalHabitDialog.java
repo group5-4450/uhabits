@@ -29,6 +29,7 @@ public class NumericalHabitDialog extends AppCompatDialogFragment{
     private Switch numericSwitch;
     private String number;
     private Habit habit;
+    private int numerical;
 
     @SuppressLint("ValidFragment")
     public NumericalHabitDialog(Switch numericalSwitch, Habit habit) {
@@ -46,6 +47,10 @@ public class NumericalHabitDialog extends AppCompatDialogFragment{
 
         numericalValue = (EditText) view.findViewById(R.id.numericalValue);
 
+        if (habit.getNumerical() != 0) {
+            numericalValue.setText(habit.getNumerical().toString());
+        }
+
         saveButton = (Button) view.findViewById(R.id.saveButton);
         saveButton.setOnClickListener(v -> {
             number = numericalValue.getText().toString();
@@ -57,14 +62,15 @@ public class NumericalHabitDialog extends AppCompatDialogFragment{
             {
                 // save numerical value of habit here
                 Log.d("In Save Button", "\n" + habit.getType());
-                numericalValue.setText(number);
+                numerical = Integer.parseInt(numericalValue.getText().toString());
+                habit.setNumerical(numerical);
                 dialog.dismiss();
             }
         });
 
         discardButton = (Button) view.findViewById(R.id.discardButton);
         discardButton.setOnClickListener(v -> {
-            if(numericalValue.getText().toString().isEmpty())
+            if(numericalValue.getText().toString().isEmpty() && habit.getNumerical() == 0)
             {
                 if(numericSwitch.isChecked())
                 {
@@ -78,11 +84,6 @@ public class NumericalHabitDialog extends AppCompatDialogFragment{
 
         dialog = builder.create();
         return dialog;
-    }
-
-    public String numberInputted()
-    {
-        return number;
     }
 
 }

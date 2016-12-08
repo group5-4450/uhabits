@@ -42,7 +42,7 @@ public class HabitRecord extends Model implements SQLiteRecord
     public static String SELECT =
         "select id, color, description, freq_den, freq_num, " +
         "name, position, reminder_hour, reminder_min, " +
-        "highlight, archived, reminder_days from habits ";
+        "highlight, archived, reminder_days, typeN, numerical, count, day_count from habits ";
 
     @Column(name = "name")
     public String name;
@@ -79,6 +79,20 @@ public class HabitRecord extends Model implements SQLiteRecord
 
     @Column(name = "archived")
     public Integer archived;
+
+    @Column(name = "typeN")
+    public String typeN;
+
+    @Column(name = "numerical")
+    public Integer numerical;
+
+    @Column(name = "count")
+    public Integer count;
+
+    @Column(name = "day_count")
+    public Long dayCount;
+
+
 
     public HabitRecord()
     {
@@ -150,6 +164,10 @@ public class HabitRecord extends Model implements SQLiteRecord
         this.reminderDays = 0;
         this.reminderMin = null;
         this.reminderHour = null;
+        this.typeN = model.getType();
+        this.numerical = model.getNumerical();
+        this.count = model.getCount();
+        this.dayCount = model.getDayCount();
 
         if (model.hasReminder())
         {
@@ -175,6 +193,10 @@ public class HabitRecord extends Model implements SQLiteRecord
         highlight = c.getInt(9);
         archived = c.getInt(10);
         reminderDays = c.getInt(11);
+        typeN = c.getString(12);
+        numerical = c.getInt(13);
+        count = c.getInt(14);
+        dayCount = c.getLong(15);
     }
 
     public void copyTo(Habit habit)
@@ -185,6 +207,10 @@ public class HabitRecord extends Model implements SQLiteRecord
         habit.setColor(this.color);
         habit.setArchived(this.archived != 0);
         habit.setId(this.getId());
+        habit.setType(this.typeN);
+        habit.setNumerical(this.numerical);
+        habit.setCount(this.count);
+        habit.setDayCount(this.dayCount);
 
         if (reminderHour != null && reminderMin != null)
         {
