@@ -85,6 +85,7 @@ public class BaseDialogHelper
             numericSwitch.setChecked(false);
             habit.setNumerical(0);
             habit.setCount(0);
+            habit.setDayCount(DateUtils.getStartOfToday());
         }
         else if(habit.getType().equals(numericSwitch.getTextOn()))
         {
@@ -119,7 +120,7 @@ public class BaseDialogHelper
             habit.setCount(0);
 
         }
-        habit.setDayCount(DateUtils.getStartOfToday());
+
         Log.d("numerical", habit.getNumerical().toString());
 
     }

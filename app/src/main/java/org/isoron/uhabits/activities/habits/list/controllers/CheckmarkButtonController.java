@@ -98,7 +98,7 @@ public class CheckmarkButtonController
         if ((!habit.getType().equals("Regular")) && (habit.getNumerical() != 0) && (DateUtils.getStartOfToday() == timestamp)){
 
             if (habit.getCount() < habit.getNumerical() - 1){
-                habit.setCount(habit.getCount()+ 1);
+                habit.setCount(habit.getCount() + 1);
                 Log.d("count", "increased");
                 Log.d("count", "" + habit.getCount());
 

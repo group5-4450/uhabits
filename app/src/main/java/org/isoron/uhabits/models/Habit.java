@@ -78,10 +78,10 @@ public class Habit
     @Nullable
     private Reminder reminder;
 
-    private ModelObservable observable = new ModelObservable();
-
     @NonNull
     private String typeN;
+
+    private ModelObservable observable = new ModelObservable();
 
     /**
      * Constructs a habit with default attributes.
