@@ -108,9 +108,7 @@ public class CheckmarkButtonController
                 Log.d("count", "equals!");
                 if (view != null) view.toggle();
                 if (listener != null) listener.onToggle(habit, timestamp);
-
             }
-            
         }
         else {
             Log.d("normal", "normal");

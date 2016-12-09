@@ -210,9 +210,6 @@ public class BaseScreen
             TextView tv = (TextView) snackbar.getView().findViewById(tvId);
             tv.setTextColor(Color.WHITE);
         }
-        else if (stringId == R.string.numerical_toggle){
-            snackbar.setText("custom message!");
-        }
         else snackbar.setText(stringId);
         snackbar.show();
     }
@@ -223,13 +220,11 @@ public class BaseScreen
         if (stringId == null || rootView == null) return;
         if (snackbar == null)
         {
-
             snackbar = Snackbar.make(rootView, customString, Snackbar.LENGTH_SHORT);
             int tvId = android.support.design.R.id.snackbar_text;
             TextView tv = (TextView) snackbar.getView().findViewById(tvId);
             tv.setTextColor(Color.WHITE);
         }
-
         else snackbar.setText(customString);
         snackbar.show();
     }

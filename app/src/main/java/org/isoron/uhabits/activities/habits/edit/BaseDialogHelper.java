@@ -101,7 +101,6 @@ public class BaseDialogHelper
     {
         habit.setName(tvName.getText().toString().trim());
         habit.setDescription(tvDescription.getText().toString().trim());
-        // checks to see if the button isn't checked and type is null
         habit.setType(habit.getType());
         habit.setNumerical(habit.getNumerical());
         Log.d("BaseDialogHelper off", "\n" + habit.getType());
@@ -114,15 +113,12 @@ public class BaseDialogHelper
             habit.setFrequency(new Frequency(numerator, denominator));
 
         }
-
         if (habit.getType().equals(numericSwitch.getTextOff())){
             habit.setNumerical(0);
             habit.setCount(0);
-
         }
 
         Log.d("numerical", habit.getNumerical().toString());
-
     }
 
     void populateColor(int paletteColor)

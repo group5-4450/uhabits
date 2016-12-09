@@ -74,7 +74,6 @@ public class NumericalHabitDialog extends AppCompatDialogFragment{
             {
                 if(numericSwitch.isChecked())
                 {
-                    dialog.setTitle("yes");
                     numericSwitch.setChecked(false);
                     Log.d("In Discard Button", "\n" + habit.getType());
                 }
