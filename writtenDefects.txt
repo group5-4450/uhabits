@@ -1,0 +1,29 @@
+Informal bugs & defects:
+- Non-peristent Data in SQL database (High)
+- Edit Numerical Habit Dialog EditView not showing current value (Low)
+- Minor visual bug with Numerical Icon (Medium)
+- Tried adding field in incorrect SQL object (caught by peer coming back from lunch break on two ocasions)
+- 
+
+Formal Code Inspection:
+- General formatting
+- Naming convention, clearer nemaes could be used
+- Lacks defensive programming with NonNull time
+- 
+- 
+- 
+- 
+
+
+
+Static Analysis (IntelliJ):
+
+- String Bug -- incorrect use of equals (== instead of .equals)
+- Unnecessary Statement -- Function that was never called/never reached
+- Not importing correct libraries
+- Reserved Keyword being used as variable (changed type variable to typeN)
+
+
+Regression Testing (Manual, UI heavy features)
+- Did evolutionary prototyping / phased incremental lifecycle
+- Continual tested all features upon the integration of a new feature
