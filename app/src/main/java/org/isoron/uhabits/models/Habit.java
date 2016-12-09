@@ -92,7 +92,7 @@ public class Habit
     @Inject
     Habit(@NonNull ModelFactory factory)
     {
-        this.typeN = "Regular";
+//        this.typeN = "Regular";
         this.color = 5;
         this.archived = false;
         this.frequency = new Frequency(3, 7);

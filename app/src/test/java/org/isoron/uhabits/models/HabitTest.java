@@ -34,6 +34,17 @@ public class HabitTest extends BaseUnitTest
         super.setUp();
     }
 
+//    copyFrom()
+//    setType()
+//    getType()
+//    setNumerical()
+//    getNumerical()
+//    getCount()
+//    setCount()
+//    getDayCount()
+//    setDayCount()
+
+
     @Test
     public void testConstructor_default()
     {
@@ -55,6 +66,11 @@ public class HabitTest extends BaseUnitTest
         model.setColor(0);
         model.setFrequency(new Frequency(10, 20));
         model.setReminder(new Reminder(8, 30, new WeekdayList(1)));
+        // added
+        model.setDayCount(0L);
+        model.setCount(0);
+        model.setNumerical(0);
+        model.setType("Numerical");
 
         Habit habit = modelFactory.buildHabit();
         habit.copyFrom(model);
@@ -62,6 +78,11 @@ public class HabitTest extends BaseUnitTest
         assertThat(habit.getColor(), is(model.getColor()));
         assertThat(habit.getFrequency(), equalTo(model.getFrequency()));
         assertThat(habit.getReminder(), equalTo(model.getReminder()));
+        //added
+        assertThat(habit.getDayCount(), is(model.getDayCount()));
+        assertThat(habit.getCount(), is(model.getCount()));
+        assertThat(habit.getNumerical(), is(model.getNumerical()));
+        assertThat(habit.getType(), equalTo(model.getType()));
     }
 
 
