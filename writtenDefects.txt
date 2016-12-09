@@ -7,11 +7,11 @@ Informal bugs & defects:
 
 Formal Code Inspection:
 - General formatting
-- Naming convention, clearer nemaes could be used
-- Lacks defensive programming with NonNull time
-- 
-- 
-- 
+- Naming convention, clearer names could be used (Habit.java)
+- Lacks defensive programming with NonNull time (Habit.java, ChackmarkButtonController.java)
+- Initialize variables when the window is created (BaseDialogHelper.java)
+- Prototyping code was left in (NumericalHabitDialog.java)
+- IF statement that is never executed (BaseScreen.java)
 - 
 
 
