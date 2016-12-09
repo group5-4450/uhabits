@@ -14,8 +14,6 @@ Formal Code Inspection:
 - IF statement that is never executed (BaseScreen.java)
 - 
 
-
-
 Static Analysis (IntelliJ):
 
 - String Bug -- incorrect use of equals (== instead of .equals)
