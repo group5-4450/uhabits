@@ -56,12 +56,22 @@ public class HabitTest extends BaseUnitTest
         model.setFrequency(new Frequency(10, 20));
         model.setReminder(new Reminder(8, 30, new WeekdayList(1)));
 
+        model.setCount(0);
+        model.setType("Regular");
+        model.setNumerical(0);
+        model.setDayCount(1L);
+
         Habit habit = modelFactory.buildHabit();
         habit.copyFrom(model);
         assertThat(habit.isArchived(), is(model.isArchived()));
         assertThat(habit.getColor(), is(model.getColor()));
         assertThat(habit.getFrequency(), equalTo(model.getFrequency()));
         assertThat(habit.getReminder(), equalTo(model.getReminder()));
+
+        assertThat(habit.getType(), equalTo(model.getType()));
+        assertThat(habit.getDayCount(), is(model.getDayCount()));
+        assertThat(habit.getNumerical(), is(model.getNumerical()));
+        assertThat(habit.getCount(), is(model.getCount()));
     }
 
 

@@ -62,6 +62,11 @@ public class HabitRecordTest extends BaseAndroidTest
         habit.setReminder(new Reminder(8, 30, WeekdayList.EVERY_DAY));
         habit.setId(1000L);
 
+        habit.setType("Regular");
+        habit.setDayCount(1L);
+        habit.setNumerical(0);
+        habit.setCount(0);
+
         HabitRecord rec = new HabitRecord();
         rec.copyFrom(habit);
 
@@ -71,6 +76,11 @@ public class HabitRecordTest extends BaseAndroidTest
         assertThat(rec.archived, equalTo(1));
         assertThat(rec.freqDen, equalTo(7));
         assertThat(rec.freqNum, equalTo(3));
+
+        assertThat(rec.typeN, equalTo("Regular"));
+        assertThat(rec.numerical, equalTo(0));
+        assertThat(rec.dayCount, equalTo(1L));
+        assertThat(rec.count, equalTo(0));
 
         Reminder reminder = habit.getReminder();
         assertThat(rec.reminderDays, equalTo(reminder.getDays().toInteger()));
