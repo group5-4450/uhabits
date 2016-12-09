@@ -86,8 +86,15 @@ public class CheckmarkButtonController
     public void performToggle()
     {
         // Gets the record of the habit using the habit's id
-        habitRecord = HabitRecord.get(habit.getId());
-        Log.d("Frequency", "" + habitRecord.numerical);
+        try
+        {
+            habitRecord = HabitRecord.get(habit.getId());
+        } catch(Exception e)
+        {
+
+        }
+
+        //Log.d("Frequency", "" + habitRecord.numerical);
 
         if (habit.getDayCount() != DateUtils.getStartOfToday()){
             habit.setDayCount(DateUtils.getStartOfToday());
@@ -99,25 +106,32 @@ public class CheckmarkButtonController
 
             if (habit.getCount() < habit.getNumerical() - 1){
                 habit.setCount(habit.getCount() + 1);
-                Log.d("count", "increased");
-                Log.d("count", "" + habit.getCount());
+                //Log.d("count", "increased");
+                //Log.d("count", "" + habit.getCount());
 
                 listener.onNumericalToggle(habit);
             }
             else {
-                Log.d("count", "equals!");
+                //Log.d("count", "equals!");
                 if (view != null) view.toggle();
                 if (listener != null) listener.onToggle(habit, timestamp);
             }
         }
         else {
-            Log.d("normal", "normal");
+            //Log.d("normal", "normal");
             if (view != null) view.toggle();
             if (listener != null) listener.onToggle(habit, timestamp);
         }
 
-        habitRecord.copyFrom(habit);
-        habitRecord.save();
+        try
+        {
+            habitRecord.copyFrom(habit);
+            habitRecord.save();
+        } catch (Exception e)
+        {
+
+        }
+
     }
 
     public void setListener(@Nullable Listener listener)
