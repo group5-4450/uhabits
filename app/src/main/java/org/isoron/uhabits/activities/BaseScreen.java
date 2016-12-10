@@ -35,6 +35,7 @@ import android.widget.*;
 import org.isoron.uhabits.*;
 import org.isoron.uhabits.models.Habit;
 import org.isoron.uhabits.utils.*;
+import org.jetbrains.annotations.TestOnly;
 
 import java.io.*;
 
